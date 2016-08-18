@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeLeaf.org">
+    <head>
+        <title>List des Etudiants</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+        <link rel="stylesheet" href="../static/css/mystyle.css" th:href="@{/css/mystyle.css}" />
+        <script type="text/javascript" src="../static/js/angular.min.js" th:src="@{/js/angular.min.js}" ></script>
+    </head>
+    
+    <body>
+        
+         <div class="container spacer">
+            <a th:href="@{index}">retour a l'index</a>
+        </div>
+        
+        <div class="col-md-6 col-sm-6 col-xs-12 spacer col-md-offset-3 col-sm-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Ajout d'un etudiant</div>
+                <div class="panel-body">
+                    <form th:action="@{saveEtudiant}" method="post" th:object="${etudiant}" >
+                        <div class="form-group">
+                            <label class="control-label">Nom : </label>
+                            <input type="text" class="form-control" th:field="*{nom}" />
+                            <span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Date de Naissance : </label>
+                            <input type="date" class="form-control" th:field="*{dateNaissance}" />
+                            <span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">email : </label>
+                            <input type="text" class="form-control" th:field="*{email}" />
+                            <span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Photo : </label>
+                            <input type="file" class="form-control" th:field="*{photo}" />
+                            <span></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary center-block">Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
