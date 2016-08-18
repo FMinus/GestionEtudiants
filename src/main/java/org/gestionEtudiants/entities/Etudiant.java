@@ -11,8 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -28,13 +28,14 @@ public class Etudiant implements Serializable
     private Long id;
     
     @NotEmpty
-    @Size(min = 4,max = 30)
+    @Size(min = 4,max = 30,message = "too short! - that's what she said hue")
     private String nom;
     
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
     
     @NotEmpty
+    @Email
     private String email;
     
     private String photo;
